@@ -52,9 +52,9 @@ public class QaServiceImpl implements QaService {
                 answer,
                 fact!=null,
                 intent.name(),
-                entity.getKeyword(),
                 fact==null?null:fact.getSourceName(),
-                fact==null?null:fact.getSourceUrl()
+                fact==null?null:fact.getSourceUrl(),
+                entity.getKeyword()
         );
         saveQaMessage(request,response);
         return response;
