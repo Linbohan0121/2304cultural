@@ -17,5 +17,9 @@ public enum QaIntent {
     DYNASTY_ARTIFACTS,    // 同一朝代文物
     ARTIFACT_SIZE,        // 文物尺寸规格
     RELATED_ARTIFACTS,    // 相关文物推荐
+    MUSEUM_ARTIFACT_COUNT, // 博物馆藏品数量统计
+    MUSEUM_ARTIFACTS,     // 博物馆藏品列表
+    TYPE_ARTIFACTS,       // 某类型文物列表
+    MATERIAL_ARTIFACTS,   // 某材质文物列表
     UNKNOWN               // 无法识别
 }

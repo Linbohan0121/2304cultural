@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>问答管理后台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">QA Operations</p>
+          <h1>问答管理后台</h1>
+        </div>
+        <a class="user-link" href="http://localhost:5175" target="_blank" rel="noreferrer">打开用户端</a>
+      </header>
+
+      <section class="stats-grid" id="statsGrid">
+        <article class="stat-card"><span>总问答</span><strong id="totalCount">-</strong></article>
+        <article class="stat-card"><span>命中</span><strong id="matchedCount">-</strong></article>
+        <article class="stat-card"><span>未命中</span><strong id="noDataCount">-</strong></article>
+        <article class="stat-card"><span>异常</span><strong id="errorCount">-</strong></article>
+        <article class="stat-card"><span>有用反馈</span><strong id="helpfulCount">-</strong></article>
+        <article class="stat-card"><span>不准确反馈</span><strong id="inaccurateCount">-</strong></article>
+      </section>
+
+      <main class="workspace">
+        <section class="table-panel">
+          <div class="filters">
+            <div class="field">
+              <label for="keywordInput">关键词</label>
+              <input id="keywordInput" type="search" placeholder="问题 / 答案 / 实体关键词" />
+            </div>
+            <div class="field">
+              <label for="statusSelect">状态</label>
+              <select id="statusSelect">
+                <option value="">全部</option>
+                <option value="success">success</option>
+                <option value="no_data">no_data</option>
+                <option value="error">error</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="feedbackSelect">反馈</label>
+              <select id="feedbackSelect">
+                <option value="">全部</option>
+                <option value="helpful">helpful</option>
+                <option value="inaccurate">inaccurate</option>
+              </select>
+            </div>
+            <button id="searchButton" class="primary-button" type="button">查询</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>问题</th>
+                  <th>回答</th>
+                  <th>意图</th>
+                  <th>状态</th>
+                  <th>反馈</th>
+                  <th>时间</th>
+                </tr>
+              </thead>
+              <tbody id="messageTable"></tbody>
+            </table>
+          </div>
+
+          <div class="pager">
+            <button id="prevButton" class="ghost-button" type="button">上一页</button>
+            <span id="pageInfo">第 1 页</span>
+            <button id="nextButton" class="ghost-button" type="button">下一页</button>
+          </div>
+        </section>
+
+        <aside class="detail-panel">
+          <p class="eyebrow">Record Detail</p>
+          <h2 id="detailTitle">选择一条记录</h2>
+          <dl>
+            <div><dt>关键词</dt><dd id="detailKeyword">-</dd></div>
+            <div><dt>类型</dt><dd id="detailQuestionType">-</dd></div>
+            <div><dt>来源</dt><dd id="detailSource">-</dd></div>
+            <div><dt>反馈备注</dt><dd id="detailRemark">-</dd></div>
+          </dl>
+          <p id="detailAnswer" class="detail-answer">点击左侧记录查看完整回答。</p>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

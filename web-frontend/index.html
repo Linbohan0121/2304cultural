@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>海外藏中国文物问答系统</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Relic QA Console</p>
+          <h1>海外藏中国文物问答系统</h1>
+        </div>
+        <div class="user-panel">
+          <label for="userId">用户 ID</label>
+          <input id="userId" type="number" min="1" value="1" />
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="ask-panel" aria-label="问答面板">
+          <div class="question-box">
+            <textarea id="questionInput" rows="4" placeholder="输入问题，例如：青花瓷瓶收藏在哪个博物馆？"></textarea>
+            <div class="question-actions">
+              <span id="connectionState" class="status-dot">等待提问</span>
+              <button id="askButton" class="primary-button" type="button">
+                <span>发送问题</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="quick-strip" id="quickQuestions" aria-label="快捷问题"></div>
+
+          <article class="answer-panel" aria-live="polite">
+            <div class="answer-header">
+              <div>
+                <p class="section-label">回答</p>
+                <h2 id="answerTitle">请选择或输入一个问题</h2>
+              </div>
+              <span id="qaStatus" class="pill neutral">idle</span>
+            </div>
+            <p id="answerText" class="answer-text">接口联通后，这里会展示知识图谱返回的答案、识别意图和来源。</p>
+
+            <dl class="meta-grid">
+              <div>
+                <dt>意图</dt>
+                <dd id="intentValue">-</dd>
+              </div>
+              <div>
+                <dt>类型</dt>
+                <dd id="questionTypeValue">-</dd>
+              </div>
+              <div>
+                <dt>关键词</dt>
+                <dd id="keywordValue">-</dd>
+              </div>
+              <div>
+                <dt>来源</dt>
+                <dd id="sourceValue">-</dd>
+              </div>
+              <div>
+                <dt>解析方式</dt>
+                <dd id="parseSourceValue">-</dd>
+              </div>
+              <div>
+                <dt>回答方式</dt>
+                <dd id="answerSourceValue">-</dd>
+              </div>
+            </dl>
+
+            <div class="feedback-row">
+              <button id="helpfulButton" class="ghost-button" type="button" disabled>有用</button>
+              <button id="inaccurateButton" class="ghost-button" type="button" disabled>不准确</button>
+              <span id="feedbackState"></span>
+            </div>
+          </article>
+        </section>
+
+        <aside class="side-panel">
+          <section class="list-section">
+            <div class="section-head">
+              <div>
+                <p class="section-label">历史记录</p>
+                <h2>最近问答</h2>
+              </div>
+              <button id="refreshHistoryButton" class="icon-button" type="button" title="刷新历史">↻</button>
+            </div>
+            <div id="historyList" class="record-list"></div>
+          </section>
+
+          <section class="list-section">
+            <div class="section-head">
+              <div>
+                <p class="section-label">热门问题</p>
+                <h2>高频提问</h2>
+              </div>
+              <button id="refreshHotButton" class="icon-button" type="button" title="刷新热门">↻</button>
+            </div>
+            <div id="hotList" class="record-list compact"></div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

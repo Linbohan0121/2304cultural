@@ -22,13 +22,21 @@ public class QaHistoryItem {
 
     private String intent;
 
+    private String questionType;
+
     private String keyword;
 
     private Boolean matched;
 
+    private String qaStatus;
+
     private String sourceName;
 
     private String sourceUrl;
+
+    private String feedbackType;
+
+    private String feedbackRemark;
 
     private LocalDateTime createdAt;
 }
